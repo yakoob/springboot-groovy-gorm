@@ -29,7 +29,10 @@ class Account {
         /*
         Account.findAllByStatusAndCreatedBetween(Status.ACTIVE, new Date(), new Date())
          */
-        return Account.findAllByStatus(Status.ACTIVE)
+        Account.withNewSession {
+            return Account.findAllByStatus(Status.ACTIVE)
+        }
+
     }
 
     static constraints = {
