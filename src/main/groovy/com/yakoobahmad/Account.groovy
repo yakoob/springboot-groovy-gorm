@@ -6,6 +6,7 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -29,9 +30,9 @@ class Account {
         /*
         Account.findAllByStatusAndCreatedBetween(Status.ACTIVE, new Date(), new Date())
          */
-        Account.withNewSession {
-            return Account.findAllByStatus(Status.ACTIVE)
-        }
+
+        return Account.findAllByStatus(Status.ACTIVE)
+
 
     }
 
@@ -43,6 +44,7 @@ class Account {
 }
 
 @Service('accountService')
+@Transactional
 class AccountService {
 
     @Autowired
@@ -71,9 +73,7 @@ class AccountController {
 
     @RequestMapping(value = "/list/current/month", method = RequestMethod.GET)
     def listActiveAccounts() {
-        Account.withNewSession {
-            return Account.listActiveAccountsThisMonth()
-        }
+        return Account.listActiveAccountsThisMonth().id
     }
 
     @RequestMapping(value = "/goToPaid/{accountId}", method = RequestMethod.PUT)
