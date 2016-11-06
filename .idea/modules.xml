@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm_main.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm_main.iml" group="springboot-groovy-gorm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm_test.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot-groovy-gorm_test.iml" group="springboot-groovy-gorm" />
+    </modules>
+  </component>
+</project>
